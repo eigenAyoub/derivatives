@@ -37,11 +37,11 @@ class BSMOption(ABC):
         return self.nd2
 
     @abstractmethod
-    def value(self):
+    def compute_value(self):
        pass 
 
     @abstractmethod
-    def delta(self):
+    def compute_delta(self):
        pass 
 
     def __repr__(self):
@@ -58,14 +58,17 @@ class BSMEuroCallOption(BSMOption):
         self.compute_d2()
         self.compute_nd1()
         self.compute_nd2()
+        self.compute_value()
+        self.compute_delta()
         
         
-    def value(self):
-        return self.s * math.exp(-self.div * self.t) * self.nd1 - self.x * math.exp(-self.rf * self.t) * self.nd2 
-        
+    def compute_value(self):
+        self.value = self.s * math.exp(-self.div * self.t) * self.nd1 - self.x * math.exp(-self.rf * self.t) * self.nd2 
+        return self.value 
     
-    def delta(self):
-        return math.exp(-self.div * self.t) * self.nd1
+    def compute_delta(self):
+        self.delta = math.exp(-self.div * self.t) * self.nd1
+        return self.delta
     
     def __repr__(self):
         return (
@@ -81,14 +84,16 @@ class BSMEuroPutOption(BSMOption):
         self.compute_d2()
         self.compute_nd1()
         self.compute_nd2()
+        self.compute_value()
+        self.compute_delta()
         
+    def compute_value(self):
+        self.value = -(self.s * math.exp(-self.div * self.t) * (1-self.nd1) - self.x * math.exp(-self.rf * self.t) * (1-self.nd2))
+        return self.value
         
-        
-    def value(self):
-        return -(self.s * math.exp(-self.div * self.t) * (1-self.nd1) - self.x * math.exp(-self.rf * self.t) * (1-self.nd2))
-        
-    def delta(self):
-        return -math.exp(-self.div * self.t) * (1-self.nd1)
+    def compute_delta(self):
+        self.delta = -math.exp(-self.div * self.t) * (1-self.nd1)
+        return self.delta
     
     def __repr__(self):
         return (
@@ -97,12 +102,3 @@ class BSMEuroPutOption(BSMOption):
         )
 
 
-call = BSMEuroCallOption(100, 100, 0.5, 0.25, 0.04, 0.02)
-print(call.delta())
-put = BSMEuroPutOption(100, 100, 0.5, 0.25, 0.04, 0.02)
-print(put.delta())
-# change standard deviation:
-call.set_sigma(0.5)
-print(call.delta())
-put.set_sigma(0.5)
-print(put.delta())
