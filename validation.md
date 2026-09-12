@@ -9,12 +9,6 @@ $$
 C-P=S_0e^{-qT}-Ke^{-rT}.
 $$
 
-**Futures put–call parity**
-
-$$
-C-P=e^{-rT}(F_0-K).
-$$
-
 **Greek verification**
 
 Closed-form Greeks are compared with central finite differences over multiple strikes, maturities, and bump sizes.
@@ -39,7 +33,6 @@ $$
 ```text
 src/
   bsm.py
-  black76.py
   implied_vol.py
   monte_carlo.py
 tests/
@@ -53,9 +46,9 @@ notebooks/
 
 ## Scope
 
-Included: European calls and puts, continuous equity dividend yield, options on commodity futures, analytical Greeks, implied volatility, parity tests, and Monte Carlo validation.
+Included: European calls and puts, continuous equity dividend yield, analytical Greeks, implied volatility, parity tests, and Monte Carlo validation.
 
-Excluded: American exercise, volatility smiles, stochastic volatility, transaction costs, futures rolling, physical storage and convenience-yield modelling, and production market-data infrastructure.
+Excluded: American exercise, volatility smiles, stochastic volatility, transaction costs, and production market-data infrastructure.
 
 
 
