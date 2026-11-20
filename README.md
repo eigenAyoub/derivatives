@@ -20,3 +20,26 @@ This is an on-going, educational repo. I intent to dig deep into Europoean optio
 | 4. Implied volatility | Imperial notes above | UT Homework 6, problems 6.1–6.2 | [BU FE459 Assignment 7, Task 2](https://cs-people.bu.edu/azs/fe459/assignments/a7.html): inversion; extend it with safeguarded Newton and bisection | DONE |
 | 5. Validation | Review the model identities below | [UT Austin Homework 5](https://web.ma.utexas.edu/users/mcudina/m339d-hw5.pdf) and Oxford 19 | [BU FE459 Assignment 8](https://cs-people.bu.edu/azs/fe459/assignments/a8.html): Monte Carlo pricing and standard errors; extend it to confidence intervals and convergence tests | TODO |
 | 6. Volatility surfaces and local volatility | [Columbia: The Black–Scholes Model](https://www.columbia.edu/~mh2078/FoundationsFE/BlackScholes.pdf), especially implied volatility and arbitrage constraints; [Imperial: Advanced Methods in Derivatives Pricing](https://www.ma.imperial.ac.uk/~ajacquie/IC_AMDP/IC_AMDP.html), sections on SVI/SSVI and local volatility | [Oxford exercises](https://people.maths.ox.ac.uk/howison/o10/exercises.pdf) 7(f), 8(c–d), 35, 37 and 40–41 | Calibrate an arbitrage-aware SSVI implied-volatility surface to European index-option quotes; extract risk-neutral densities and Dupire local volatility; validate by Monte Carlo repricing | TODO     |
+
+
+---
+
+
+### New version:
+
+First task is to implement a small Black-Scholes library that should include:
+* Calculate European call/put prices.
+* Analytical Greeks
+* IV
+* Tests all around
+
+
+| Task | Main outcome | 
+|---|---|
+| **1.1 Mathematical foundation and conventions** | Derivation notes and a precise software specification | 
+| **1.2 Analytical prices and edge cases** | Tested call/put pricing functions | 
+| **1.3 Analytical Greeks and validation** | Five Greeks with numerical evidence |
+| **1.4 Implied volatility and release** | Reliable inversion, diagnostics, and a complete demonstration |
+
+
+
